@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tabour_users/auth/auth_screen.dart';
 import 'package:tabour_users/global/global.dart';
-
+import 'package:tabour_users/widgets/user_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -33,8 +33,8 @@ class _HomeScreenState extends State<HomeScreen> {
           sharedPreferences!.getString('name')!,
         ),
         centerTitle: true,
-        automaticallyImplyLeading: false,
       ),
+      drawer: const UserDrawer(),
       body: Center(
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
