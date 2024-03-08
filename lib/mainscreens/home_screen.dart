@@ -1,7 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tabour_users/auth/auth_screen.dart';
+import 'package:staggered_grid_view_flutter/widgets/sliver.dart';
+import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 import 'package:tabour_users/global/global.dart';
+import 'package:tabour_users/models/sellers.dart';
+import 'package:tabour_users/widgets/info_design.dart';
+import 'package:tabour_users/widgets/progress_bar.dart';
 import 'package:tabour_users/widgets/user_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -112,6 +117,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+          ),
+          StreamBuilder<QuerySnapshot>(
+            stream:
+                FirebaseFirestore.instance.collection("sellers").snapshots(),
+            builder: (context, snapshot) {
+              return !snapshot.hasData
+                  ? SliverToBoxAdapter(
+                      child: Center(
+                        child: circularProgress(),
+                      ),
+                    )
+                  : SliverStaggeredGrid.countBuilder(
+                      crossAxisCount: 1,
+                      staggeredTileBuilder: (c) => StaggeredTile.fit(1),
+                      itemBuilder: (context, index) {
+                        Sellers sModel = Sellers.fromJson(
+                            snapshot.data!.docs[index].data()! as Map<String, dynamic> );
+                        //  design for displaying sellers-cafes-restuarents
+                        return InfoDesign(
+                            model: sModel, context: context);
+                      },
+                      itemCount: snapshot.data!.docs.length,
+                    );
+            },
           )
         ],
       ),
