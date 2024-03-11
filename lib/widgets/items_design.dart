@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:tabour_users/mainscreens/items_screen.dart';
+import 'package:tabour_users/models/items.dart';
 import 'package:tabour_users/models/sellers.dart';
 
-class InfoDesign extends StatefulWidget {
-  Sellers? model;
+class ItemsDesign extends StatefulWidget {
+  Items? model;
   BuildContext context;
-  InfoDesign({required this.model, required this.context});
+  ItemsDesign({required this.model, required this.context});
 
   @override
-  State<InfoDesign> createState() => _InfoDesignState();
+  State<ItemsDesign> createState() => _SellersDesignState();
 }
 
-class _InfoDesignState extends State<InfoDesign> {
+class _SellersDesignState extends State<ItemsDesign> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () {
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (c) => ItemsScreen(model: widget.model)
+        //   ),
+        // );
+      },
       splashColor: Colors.amber,
       child: Padding(
         padding: const EdgeInsets.all(5.0),
@@ -28,7 +38,7 @@ class _InfoDesignState extends State<InfoDesign> {
                 color: Colors.grey[300],
               ),
               Image.network(
-                widget.model!.sellerAvatarUrl!,
+                widget.model!.thumbnailUrl!,
                 height: 210.0,
                 fit: BoxFit.cover,
               ),
@@ -36,12 +46,12 @@ class _InfoDesignState extends State<InfoDesign> {
                 height: 1,
               ),
               Text(
-                widget.model!.sellerName!,
+                widget.model!.title!,
                 style: const TextStyle(
                     color: Colors.cyan, fontSize: 20, fontFamily: "Train"),
               ),
               Text(
-                widget.model!.sellerEmail!,
+                widget.model!.shortInfo!,
                 style: const TextStyle(color: Colors.grey, fontSize: 12),
               ),
               Divider(

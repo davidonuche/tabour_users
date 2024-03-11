@@ -5,7 +5,7 @@ import 'package:staggered_grid_view_flutter/widgets/sliver.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 import 'package:tabour_users/global/global.dart';
 import 'package:tabour_users/models/sellers.dart';
-import 'package:tabour_users/widgets/info_design.dart';
+import 'package:tabour_users/widgets/sellers_design.dart';
 import 'package:tabour_users/widgets/progress_bar.dart';
 import 'package:tabour_users/widgets/user_drawer.dart';
 
@@ -133,10 +133,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       staggeredTileBuilder: (c) => StaggeredTile.fit(1),
                       itemBuilder: (context, index) {
                         Sellers sModel = Sellers.fromJson(
-                            snapshot.data!.docs[index].data()! as Map<String, dynamic> );
+                            snapshot.data!.docs[index].data()!
+                                as Map<String, dynamic>);
                         //  design for displaying sellers-cafes-restuarents
-                        return InfoDesign(
-                            model: sModel, context: context);
+                        return SellersDesign(
+                          model: sModel,
+                          context: context,
+                        );
                       },
                       itemCount: snapshot.data!.docs.length,
                     );
