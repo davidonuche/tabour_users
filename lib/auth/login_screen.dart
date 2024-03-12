@@ -75,12 +75,13 @@ class _LoginScreenState extends State<LoginScreen> {
       if (snapshot.exists) {
         await sharedPreferences!.setBool('isLoggedIn', true);
         await sharedPreferences!.setString('uid', currentUser.uid);
-        await sharedPreferences!
-            .setString('email', snapshot.data()!['email']);
-        await sharedPreferences!
-            .setString('name', snapshot.data()!['name']);
+        await sharedPreferences!.setString('email', snapshot.data()!['email']);
+        await sharedPreferences!.setString('name', snapshot.data()!['name']);
         await sharedPreferences!
             .setString('photoUrl', snapshot.data()!['photoUrl']);
+
+        List<String> userCartList = snapshot.data()!["userCart"].cast<String>();
+        await sharedPreferences!.setStringList('userCart', userCartList);
         Navigator.pop(context);
         Navigator.push(
           context,

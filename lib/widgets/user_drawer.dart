@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tabour_users/auth/auth_screen.dart';
 import 'package:tabour_users/global/global.dart';
+import 'package:tabour_users/mainscreens/home_screen.dart';
 
 class UserDrawer extends StatelessWidget {
   const UserDrawer({super.key});
@@ -65,7 +66,14 @@ class UserDrawer extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (c) => const HomeScreen(),
+                      ),
+                    );
+                  },
                 ),
                 const Divider(
                   height: 10,

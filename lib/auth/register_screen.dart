@@ -139,6 +139,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       "name": _nameController.text.trim(),
       "photoUrl": sellerImageUrl,
       "status": "approved",
+      "userCart": ["garbageValue"],
     });
     //save data lacally
     sharedPreferences = await SharedPreferences.getInstance();
@@ -146,6 +147,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     await sharedPreferences!.setString('email', currentUser.email.toString());
     await sharedPreferences!.setString('name', _nameController.text.trim());
     await sharedPreferences!.setString('photoUrl', sellerImageUrl);
+    await sharedPreferences!.setString('userCart', ["garbageValue"] as String);
   }
 
   @override

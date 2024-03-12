@@ -17,12 +17,12 @@ class _MenusDesignState extends State<MenusDesign> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (c) => ItemsScreen(model: widget.model)
-        //   ),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (c) => ItemsScreen(model: widget.model)
+          ),
+        );
       },
       splashColor: Colors.amber,
       child: Padding(

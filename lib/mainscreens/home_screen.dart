@@ -66,8 +66,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        title: Text(
-          sharedPreferences!.getString('name')!,
+        title: const Text(
+          "Tabour User",
+          style: TextStyle(
+              color: Colors.black, fontSize: 30, fontFamily: "Signatra"),
         ),
         centerTitle: true,
       ),

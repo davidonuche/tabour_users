@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tabour_users/mainscreens/item_detail_screen.dart';
 import 'package:tabour_users/mainscreens/items_screen.dart';
 import 'package:tabour_users/models/items.dart';
 import 'package:tabour_users/models/sellers.dart';
@@ -17,12 +18,14 @@ class _SellersDesignState extends State<ItemsDesign> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (c) => ItemsScreen(model: widget.model)
-        //   ),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (c) => ItemDetailsScreen(
+              model: widget.model,
+            ),
+          ),
+        );
       },
       splashColor: Colors.amber,
       child: Padding(

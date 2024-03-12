@@ -10,6 +10,7 @@ class Items {
   String? thumbnailUrl;
   String? longDescription;
   String? status;
+  String? itemID;
   int? price;
 
   Items({
@@ -22,6 +23,7 @@ class Items {
     this.thumbnailUrl,
     this.longDescription,
     this.status,
+    this.itemID,
     this.price,
   });
 
@@ -35,6 +37,7 @@ class Items {
     thumbnailUrl = json['thumbnailUrl'];
     longDescription = json['longDescription'];
     status = json['status'];
+    itemID = json['itemID'];
     price = json['price'];
   }
 
@@ -49,6 +52,7 @@ class Items {
     data['thumbnailUrl'] = thumbnailUrl;
     data['longDescription'] = longDescription;
     data['status'] = status;
+    data['itemID'] = itemID;
     data['price'] = price;
     return data;
   }
