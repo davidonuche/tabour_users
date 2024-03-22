@@ -3,14 +3,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:staggered_grid_view_flutter/widgets/sliver.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
-import 'package:tabour_users/global/global.dart';
+import 'package:tabour_users/assistantmethods/assistant_methods.dart';
 import 'package:tabour_users/models/sellers.dart';
 import 'package:tabour_users/widgets/sellers_design.dart';
 import 'package:tabour_users/widgets/progress_bar.dart';
 import 'package:tabour_users/widgets/user_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final String? sellerUID;
+  const HomeScreen({super.key, required this.sellerUID});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -49,27 +50,31 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    clearCartNow(context);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.cyan,
-                Colors.amber,
-              ],
-              begin: FractionalOffset(0.0, 0.0),
-              end: FractionalOffset(1.0, 0.0),
-              stops: [0.0, 1.0],
-              tileMode: TileMode.clamp,
-            ),
-          ),
+              gradient: LinearGradient(
+            colors: [
+              Colors.cyan,
+              Colors.amber,
+            ],
+            begin: FractionalOffset(0.0, 0.0),
+            end: FractionalOffset(1.0, 0.0),
+            stops: [0.0, 1.0],
+            tileMode: TileMode.clamp,
+          )),
         ),
         title: const Text(
-          "Tabour User",
-          style: TextStyle(
-              color: Colors.black, fontSize: 30, fontFamily: "Signatra"),
+          "Tabour Users",
+          style: TextStyle(fontSize: 45, fontFamily: "Signatra"),
         ),
         centerTitle: true,
       ),

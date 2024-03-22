@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tabour_users/assistantmethods/cart_item_counter.dart';
+import 'package:tabour_users/assistantmethods/total_amount.dart';
 import 'package:tabour_users/firebase_options.dart';
 import 'package:tabour_users/global/global.dart';
 import 'package:tabour_users/splash%20screen/spalsh_screen.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (c) => CartItemCounter()),
+        ChangeNotifierProvider(create: (c) => TotalAmount()),
       ],
       child: MaterialApp(
         title: 'Tabour Users',

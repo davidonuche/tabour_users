@@ -2,9 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:staggered_grid_view_flutter/widgets/sliver.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
-import 'package:tabour_users/global/global.dart';
+import 'package:tabour_users/assistantmethods/assistant_methods.dart';
 import 'package:tabour_users/models/menus.dart';
 import 'package:tabour_users/models/sellers.dart';
+import 'package:tabour_users/splash%20screen/spalsh_screen.dart';
+import 'package:tabour_users/widgets/app_bar.dart';
 import 'package:tabour_users/widgets/menus_design.dart';
 import 'package:tabour_users/widgets/progress_bar.dart';
 import 'package:tabour_users/widgets/text_widget_header.dart';
@@ -22,29 +24,36 @@ class _HomeScreenState extends State<MenusScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: const UserDrawer(),
         appBar: AppBar(
           flexibleSpace: Container(
             decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.cyan,
-                  Colors.amber,
-                ],
-                begin: FractionalOffset(0.0, 0.0),
-                end: FractionalOffset(1.0, 0.0),
-                stops: [0.0, 1.0],
-                tileMode: TileMode.clamp,
-              ),
+                gradient: LinearGradient(
+              colors: [
+                Colors.cyan,
+                Colors.amber,
+              ],
+              begin: FractionalOffset(0.0, 0.0),
+              end: FractionalOffset(1.0, 0.0),
+              stops: [0.0, 1.0],
+              tileMode: TileMode.clamp,
+            )),
+          ),
+          leading: IconButton(
+            onPressed: () {
+              clearCartNow(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (c) => const SplashScreen()),
+              );
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.white,
             ),
           ),
           title: const Text(
             "Tabour Users",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 45,
-              fontFamily: "Signatra",
-            ),
+            style: TextStyle(fontSize: 45, fontFamily: "Signatra"),
           ),
           centerTitle: true,
         ),

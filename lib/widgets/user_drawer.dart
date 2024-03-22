@@ -4,6 +4,7 @@ import 'package:tabour_users/global/global.dart';
 import 'package:tabour_users/mainscreens/home_screen.dart';
 
 class UserDrawer extends StatelessWidget {
+
   const UserDrawer({super.key});
 
   @override
@@ -70,7 +71,7 @@ class UserDrawer extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (c) => const HomeScreen(),
+                        builder: (c) => HomeScreen( sellerUID: firebaseAuth.currentUser!.uid,),
                       ),
                     );
                   },

@@ -117,7 +117,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       saveDataToFirestore(auth.user!).then((value) {
         Navigator.pop(context);
         // send user to home page
-        Route newRoute = MaterialPageRoute(builder: (c) => const HomeScreen());
+        Route newRoute = MaterialPageRoute(builder: (c) => HomeScreen(sellerUID: firebaseAuth.currentUser!.uid,));
         Navigator.pushReplacement(context, newRoute);
       });
     }).catchError((error) {

@@ -39,3 +39,43 @@ addItemToCart(String? foodItemId, BuildContext context, int itemCounter) {
         .displayCartListItemsNumber();
   });
 }
+
+separateItemQuantities() {
+  List<int> separateItemQuantitiesList = [];
+  List<String> defaultItemList = [];
+  int i = 1;
+  defaultItemList = sharedPreferences!.getStringList("userCart")!;
+  for (i; i < defaultItemList.length; i++) {
+    // 56557657:7
+    String item = defaultItemList[i].toString();
+    // 7
+    List<String> listItemCharacters = item.split(":").toList();
+
+    var quanNumber = int.parse(listItemCharacters[1].toString());
+
+    print("\nThis is Quantity Number = " + quanNumber.toString());
+
+    separateItemQuantitiesList.add(quanNumber);
+  }
+  print("\nThis is Quantity List now =");
+  print(separateItemQuantitiesList);
+
+  return separateItemQuantitiesList;
+}
+
+clearCartNow(context) {
+  sharedPreferences!.setStringList('userCart', ["garbageValue"]);
+  List<String>? emptyList = sharedPreferences!.getStringList("userCart");
+  FirebaseFirestore.instance
+      .collection("users")
+      .doc(firebaseAuth.currentUser!.uid)
+      .update({
+    "userCart": emptyList,
+  }).then(
+    (value) {
+      sharedPreferences!.setString('userCart', emptyList!.toString());
+      Provider.of<CartItemCounter>(context, listen: false)
+          .displayCartListItemsNumber();
+    },
+  );
+}
