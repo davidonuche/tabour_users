@@ -28,7 +28,7 @@ class TextWidgetHeader extends SliverPersistentHeaderDelegate {
             title!,
             maxLines: 2,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 30,
               fontFamily: "Signatra",
@@ -41,11 +41,9 @@ class TextWidgetHeader extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  // TODO: implement maxExtent
   double get maxExtent => 50;
 
   @override
-  // TODO: implement minExtent
   double get minExtent => 50;
 
   @override

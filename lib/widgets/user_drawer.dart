@@ -44,7 +44,7 @@ class UserDrawer extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           // drawer body
           Container(
             padding: const EdgeInsets.only(top: 1.0),

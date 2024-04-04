@@ -146,7 +146,15 @@ class _CartScreenState extends State<CartScreen> {
               backgroundColor: Colors.cyan,
               icon: const Icon(Icons.navigate_next),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (c) => const AddressScreen()));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (c) => AddressScreen(
+                      totalAmount: totalAmount.toDouble(),
+                      sellerUID: widget.sellerUID!,
+                    ),
+                  ),
+                );
               },
             ),
           ),
@@ -214,7 +222,7 @@ class _CartScreenState extends State<CartScreen> {
                                         separateItemQuantityList![index]);
                               }
                               if (snapshot.data!.docs.length - 1 == index) {
-                                WidgetsBinding.instance!
+                                WidgetsBinding.instance
                                     .addPostFrameCallback((timeStamp) {
                                   Provider.of<TotalAmount>(context,
                                           listen: false)

@@ -12,7 +12,7 @@ import 'package:tabour_users/widgets/text_widget_header.dart';
 class ItemsScreen extends StatefulWidget {
   final Menus? model;
 
-  ItemsScreen({required this.model});
+  const ItemsScreen({super.key, required this.model});
 
   @override
   State<ItemsScreen> createState() => _HomeScreenState();

@@ -6,15 +6,14 @@ import 'package:tabour_users/assistantmethods/assistant_methods.dart';
 import 'package:tabour_users/models/menus.dart';
 import 'package:tabour_users/models/sellers.dart';
 import 'package:tabour_users/splash%20screen/spalsh_screen.dart';
-import 'package:tabour_users/widgets/app_bar.dart';
 import 'package:tabour_users/widgets/menus_design.dart';
 import 'package:tabour_users/widgets/progress_bar.dart';
 import 'package:tabour_users/widgets/text_widget_header.dart';
-import 'package:tabour_users/widgets/user_drawer.dart';
+
 
 class MenusScreen extends StatefulWidget {
   final Sellers? model;
-  MenusScreen({required this.model});
+  const MenusScreen({super.key, required this.model});
 
   @override
   State<MenusScreen> createState() => _HomeScreenState();

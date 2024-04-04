@@ -17,8 +17,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   formValidation() {
     if (_emailController.text.isNotEmpty &&
@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
       showDialog(
           context: context,
           builder: (c) {
-            return ErrorDialog(
+            return const ErrorDialog(
               message: "Please write email/password",
             );
           });
@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
     showDialog(
         context: context,
         builder: (c) {
-          return LoadingDialog(
+          return const LoadingDialog(
             message: "Checking Credentials",
           );
         });
@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
         showDialog(
             context: context,
             builder: (c) {
-              return ErrorDialog(
+              return const ErrorDialog(
                 message: "No record exists. Please create an account",
               );
             });
@@ -149,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
             onPressed: () {
               formValidation();
             },
-            child: Text(
+            child: const Text(
               "Login",
               style:
                   TextStyle(fontWeight: FontWeight.bold, color: Colors.white),

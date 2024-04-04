@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tabour_users/mainscreens/item_detail_screen.dart';
-import 'package:tabour_users/mainscreens/items_screen.dart';
 import 'package:tabour_users/models/items.dart';
-import 'package:tabour_users/models/sellers.dart';
 
 class ItemsDesign extends StatefulWidget {
   Items? model;
   BuildContext context;
-  ItemsDesign({required this.model, required this.context});
+  ItemsDesign({super.key, required this.model, required this.context});
 
   @override
   State<ItemsDesign> createState() => _SellersDesignState();

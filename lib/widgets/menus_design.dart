@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tabour_users/mainscreens/items_screen.dart';
 import 'package:tabour_users/models/menus.dart';
-import 'package:tabour_users/models/sellers.dart';
 
 class MenusDesign extends StatefulWidget {
   Menus? model;
   BuildContext context;
-  MenusDesign({required this.model, required this.context});
+  MenusDesign({super.key, required this.model, required this.context});
 
   @override
   State<MenusDesign> createState() => _MenusDesignState();

@@ -6,7 +6,7 @@ class CartItemDesign extends StatefulWidget {
   BuildContext? context;
   final int? quanNumber;
 
-  CartItemDesign({this.model, this.context, this.quanNumber});
+  CartItemDesign({super.key, this.model, this.context, this.quanNumber});
 
   @override
   State<CartItemDesign> createState() => _CartItemDesignState();
